@@ -1,0 +1,37 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="an.c" id="1-1">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="user_id_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="user_id_seq" minValue="1" maxValue="9223372036854775807"/>
+    </changeSet>
+
+    <changeSet author="an.c" id="1-2">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="user"/>
+            </not>
+        </preConditions>
+        <createTable tableName="user">
+            <column name="id" type="int8" remarks="user identifier">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="varchar(256)" remarks="user login">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="first_name" type="text" remarks="user first name"/>
+            <column name="last_name" type="text" remarks="user last name"/>
+            <column name="email" type="text" remarks="user email"/>
+            <column name="phone" type="text" remarks="user phone"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
+
+
