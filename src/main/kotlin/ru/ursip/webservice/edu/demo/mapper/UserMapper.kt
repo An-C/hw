@@ -3,13 +3,13 @@ package ru.ursip.webservice.edu.demo.mapper
 import ru.ursip.webservice.edu.demo.dto.UserCreateDto
 import ru.ursip.webservice.edu.demo.dto.UserDto
 import ru.ursip.webservice.edu.demo.dto.UserUpdateDto
-import ru.ursip.webservice.edu.demo.entity.User
+import ru.ursip.webservice.edu.demo.entity.Users
 
 class UserMapper {
 
     companion object {
 
-        fun User.toDto() =
+        fun Users.toDto() =
             UserDto(
                 id = id,
                 username = username,
@@ -20,7 +20,7 @@ class UserMapper {
             )
 
         fun UserCreateDto.toUser() =
-            User(
+            Users(
                 username = username,
                 firstName = firstName,
                 lastName = lastName,
@@ -28,7 +28,7 @@ class UserMapper {
                 phone = phone,
             )
 
-        fun update(dto: UserUpdateDto, user: User) {
+        fun update(dto: UserUpdateDto, user: Users) {
             user.firstName = dto.firstName
             user.lastName = dto.lastName
             user.email = dto.email

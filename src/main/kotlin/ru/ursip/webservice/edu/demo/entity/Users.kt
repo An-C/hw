@@ -3,8 +3,7 @@ package ru.ursip.webservice.edu.demo.entity
 import javax.persistence.*
 
 @Entity
-@Table(name = "user")
-class User(
+class Users(
 
     @Id
     @SequenceGenerator(name="user-seq", sequenceName="user_id_seq", initialValue=1000, allocationSize=1)

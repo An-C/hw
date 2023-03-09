@@ -16,10 +16,10 @@
     <changeSet author="an.c" id="1-2">
         <preConditions onFail="MARK_RAN">
             <not>
-                <tableExists tableName="user"/>
+                <tableExists tableName="users"/>
             </not>
         </preConditions>
-        <createTable tableName="user">
+        <createTable tableName="users">
             <column name="id" type="int8" remarks="user identifier">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
