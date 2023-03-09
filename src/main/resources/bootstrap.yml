@@ -13,7 +13,7 @@ spring:
   cloud:
     kubernetes:
       config:
-#        namespace: otus
+        namespace: otus
         sources:
           - name: user-config
           - name: user-secret
