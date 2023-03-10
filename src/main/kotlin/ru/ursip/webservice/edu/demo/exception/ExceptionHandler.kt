@@ -2,6 +2,7 @@ package ru.ursip.webservice.edu.demo.exception
 
 import org.slf4j.LoggerFactory
 import org.springframework.dao.DataIntegrityViolationException
+import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -22,6 +23,11 @@ class ExceptionHandler : ResponseEntityExceptionHandler() {
 
     @ExceptionHandler(ResourceNotFoundException::class)
     fun handleResourceNotFoundException(ex: ResourceNotFoundException, request: WebRequest): ResponseEntity<Any> {
+        return buildResponse("Object not found", ex, HttpStatus.PRECONDITION_FAILED, request)
+    }
+
+    @ExceptionHandler(EmptyResultDataAccessException::class)
+    fun handleEmptyResultDataAccessException(ex: EmptyResultDataAccessException, request: WebRequest): ResponseEntity<Any> {
         return buildResponse("Object not found", ex, HttpStatus.PRECONDITION_FAILED, request)
     }
 

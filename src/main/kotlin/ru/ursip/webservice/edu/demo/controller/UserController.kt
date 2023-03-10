@@ -33,8 +33,10 @@ class UserController(val userService: UserService) {
 
 
     @DeleteMapping("/{userId}")
-    fun delete(@PathVariable userId: Long) =
+    fun delete(@PathVariable userId: Long) {
         userService.delete(userId)
-            .let { ResponseEntity.status(HttpStatus.NO_CONTENT) }
+        ResponseEntity.status(HttpStatus.NO_CONTENT)
+    }
+
 
 }
