@@ -3,7 +3,7 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>ru.ursip.webservice</groupId>
+	<groupId>ru.otus.webservice</groupId>
 	<artifactId>user</artifactId>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
@@ -22,7 +22,8 @@
 		<kotlin.version>1.6.10</kotlin.version>
 		<kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 		<springfox-swagger2.version>2.9.2</springfox-swagger2.version>
-		<liquibase-core.version>4.15.0</liquibase-core.version>
+		<liquibase-core.version>4.20.0</liquibase-core.version>
+		<logstash.version>4.9</logstash.version>
 	</properties>
 
 
@@ -85,6 +86,11 @@
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
 			<version>${liquibase-core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.logstash.logback</groupId>
+			<artifactId>logstash-logback-encoder</artifactId>
+			<version>${logstash.version}</version>
 		</dependency>
 	</dependencies>
 

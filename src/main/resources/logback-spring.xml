@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Overrides basic spring log props -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <!--  Logstash props  -->
+    <springProperty name="APP_NAME" source="spring.application.name"/>
+    <springProperty name="APP_PROFILE" source="spring.profiles.active"/>
+    <springProperty name="APP_LABEL" source="spring.cloud.config.label"/>
+    <springProperty name="LOGGING_LEVEL_RU_OTUS_WEBSERVICE" source="logging.level.ru.otus.webservice" defaultValue="DEBUG"/>
+    <springProperty name="LOGGING_LEVEL_ORG_SPRINGFRAMEWORK" source="logging.level.org.springframework" defaultValue="INFO"/>
+    <springProperty name="LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB" source="logging.level.org.springframework.web" defaultValue="TRACE"/>
+    <springProperty name="LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_CLOUD_STREAM" source="logging.level.org.springframework.cloud.stream" defaultValue="INFO"/>
+    <springProperty name="LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_DATA" source="logging.level.org.springframework.data" defaultValue="INFO"/>
+    <springProperty name="LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_INTEGRATION" source="logging.level.org.springframework.integration" defaultValue="INFO"/>
+    <springProperty name="LOGGING_LEVEL_ORG_HIBERNATE" source="logging.level.org.hibernate" defaultValue="WARN"/>
+
+    <root level="WARN">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <logger name="ru.otus.webservice" level="${LOGGING_LEVEL_RU_OTUS_WEBSERVICE}"/>
+    <logger name="org.springframework" level="${LOGGING_LEVEL_ORG_SPRINGFRAMEWORK}"/>
+    <logger name="org.springframework.cloud.stream" level="${LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_CLOUD_STREAM}"/>
+    <logger name="org.springframework.data" level="${LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_DATA}"/>
+    <logger name="org.springframework.web" level="${LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB}"/>
+    <logger name="org.springframework.integration" level="${LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_INTEGRATION}"/>
+    <logger name="org.hibernate" level="${LOGGING_LEVEL_ORG_HIBERNATE}"/>
+
+</configuration>
